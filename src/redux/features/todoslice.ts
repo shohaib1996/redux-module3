@@ -5,6 +5,7 @@ type TTodo = {
   title: string;
   description: string;
   isCompleted?: boolean;
+  priority: string;
 };
 
 type TInitialState = {
@@ -26,11 +27,11 @@ export const todoSlice = createSlice({
       state.todos = state.todos.filter((item) => item.id !== action.payload);
     },
     toggleComplete: (state, action: PayloadAction<string>) => {
-        const task = state.todos.find((item)=> item.id === action.payload)
-        if (task) {
-            task.isCompleted = !task.isCompleted;
-        }
-    }
+      const task = state.todos.find((item) => item.id === action.payload);
+      if (task) {
+        task.isCompleted = !task.isCompleted;
+      }
+    },
   },
 });
 
